@@ -16,21 +16,21 @@ extends Control
 	"BERET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BeretBtn,
 	"BICORNE": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BicorneBtn,
 	"BOATER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BoaterBtn,
-	"BOWLER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BowlerBtn,
-	"DEERSTALKER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/DeerstalkerBtn,
-	"FEDORA": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FedoraBtn,
-	"FEZ": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FezBtn,
-	"FOOTBALL HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FootballHelmetBtn,
-	"GARRISON CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/GarrisonCapBtn,
-	"HARD HAT": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/HardHatBtn,
-	"MILITARY HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MilitaryHelmetBtn,
-	"MOTARBOARD": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MotarboardBtn,
-	"PITH HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PithHelmetBtn,
+	# "BOWLER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BowlerBtn,
+	# "DEERSTALKER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/DeerstalkerBtn,
+	 "FEDORA": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FedoraBtn,
+	# "FEZ": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FezBtn,
+	# "FOOTBALL HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FootballHelmetBtn,
+	# "GARRISON CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/GarrisonCapBtn,
+	# "HARD HAT": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/HardHatBtn,
+	# "MILITARY HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MilitaryHelmetBtn,
+	 "MOTARBOARD": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MotarboardBtn,
+	# "PITH HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PithHelmetBtn,
 	"PORK PIE": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PorkPieBtn,
 	"SOMBRERO": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/SombreroBtn,
-	"SOUTHWESTER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/SouthwesterBtn,
+	# "SOUTHWESTER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/SouthwesterBtn,
 	"TOP HAT": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/TopHatBtn,
-	"ZUCCHETTO": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/ZucchettoBtn
+	# "ZUCCHETTO": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/ZucchettoBtn
 }
 
 var udp_client: PacketPeerUDP
@@ -76,7 +76,7 @@ func _ready():
 	print("🎩 Hat categories loaded: ", hat_buttons.size())
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 
 func _process(delta):
 	if is_connected:
@@ -356,4 +356,4 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if is_connected:
 			disconnect_from_server()
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://main_menu.tscn")
