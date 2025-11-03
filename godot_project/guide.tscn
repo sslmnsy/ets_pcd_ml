@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgp8u5woc7156"]
+
+[ext_resource type="Script" path="res://guide.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8jt61foy45r2" path="res://asset/panduan.png" id="2_feuw2"]
+[ext_resource type="FontFile" uid="uid://d1sx4lt84lm2w" path="res://asset/Pacifico-Regular.ttf" id="3_gajip"]
+[ext_resource type="AudioStream" uid="uid://c7ge6ay7v72a8" path="res://asset/sound.mp3" id="4_83y8a"]
+[ext_resource type="PackedScene" path="res://sound.tscn" id="5_utvnm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83y8a"]
+bg_color = Color(0.54739803, 0.37894404, 0.41593853, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.9019608, 0.8, 0.7019608, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utvnm"]
+bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn84f"]
+bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 649.0
+texture = ExtResource("2_feuw2")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 162.0
+offset_right = 670.0
+offset_bottom = 439.0
+theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+theme_override_fonts/font = ExtResource("3_gajip")
+theme_override_font_sizes/font_size = 20
+text = "
+Main Menu
+Guide → Petunjuk penggunaan aplikasi
+Teams → Anggota tim pengembang
+Start VTO → Mulai fitur Virtual Try-On
+Quit → Keluar dari aplikasi
+"
+
+[node name="Label3" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 206.0
+offset_right = 1151.0
+offset_bottom = 483.0
+theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+theme_override_fonts/font = ExtResource("3_gajip")
+theme_override_font_sizes/font_size = 20
+text = "Start VTO
+1. Aktifkan kamera dan tunggu proses deteksi wajah (connec to server)
+2. Pilih kategori topi: 🎩 Formal, 🧢 Casual, 👒 Fashion
+3. Topi akan muncul otomatis di posisi kepala
+4.Tekan Back untuk kembali ke menu utama
+
+"
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 487.0
+offset_right = 1052.0
+offset_bottom = 644.0
+theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+theme_override_fonts/font = ExtResource("3_gajip")
+theme_override_font_sizes/font_size = 20
+text = "Tips
+Gunakan pencahayaan cukup
+Pastikan wajah menghadap kamera
+Jarak ideal ±50 cm dari kamera"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.5
+offset_top = -77.0
+offset_right = 55.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_gajip")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_83y8a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_utvnm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rn84f")
+text = "Kembali"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_83y8a")
+autoplay = true
+
+[node name="InstallSounds" parent="." instance=ExtResource("5_utvnm")]
+root_path = NodePath("..")
