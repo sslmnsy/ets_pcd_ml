@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8jt61foy45r2" path="res://asset/panduan.png" id="2_21dyk"]
 [ext_resource type="FontFile" uid="uid://d1sx4lt84lm2w" path="res://asset/Pacifico-Regular.ttf" id="3_48mts"]
 [ext_resource type="AudioStream" uid="uid://c7ge6ay7v72a8" path="res://asset/sound.mp3" id="4_21dyk"]
-[ext_resource type="PackedScene" path="res://sound.tscn" id="5_bi5fp"]
+[ext_resource type="PackedScene" uid="uid://xmnw7uyt3tsg" path="res://sound.tscn" id="5_bi5fp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
 bg_color = Color(0.14901961, 0.14901961, 0.2, 0.23921569)
@@ -32,12 +32,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_btn"]
-bg_color = Color(0.2, 0.2, 0.25, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y8pm"]
+bg_color = Color(0.5764706, 0.42745098, 0.47058824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_btn_pressed"]
 bg_color = Color(0.3, 0.5, 0.7, 1)
@@ -275,56 +275,12 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
 
-[node name="AscotCapBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Ascot Cap"
-
-[node name="BaseballCapBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Baseball Cap"
-
-[node name="BeretBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Beret"
-
-[node name="BicorneBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Bicorne"
-
-[node name="BoaterBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Boater"
-
 [node name="PorkPieBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
 text = "Pork Pie"
@@ -332,26 +288,30 @@ text = "Pork Pie"
 [node name="TopHatBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
 text = "Top Hat"
 
-[node name="MotarboardBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
+[node name="PithHelmetBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
-text = "Motharboard"
+text = "Pith 
+Helmet"
 
 [node name="FedoraBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
 text = "Fedora"
@@ -359,8 +319,9 @@ text = "Fedora"
 [node name="SombreroBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_hat_btn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
 text = "Sombrero"

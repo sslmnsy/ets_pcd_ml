@@ -11,11 +11,11 @@ extends Control
 
 # Hat category buttons
 @onready var hat_buttons = {
-	"ASCOT CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/AscotCapBtn,
-	"BASEBALL CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BaseballCapBtn,
-	"BERET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BeretBtn,
-	"BICORNE": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BicorneBtn,
-	"BOATER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BoaterBtn,
+	#"ASCOT CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/AscotCapBtn,
+	#"BASEBALL CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BaseballCapBtn,
+	#"BERET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BeretBtn,
+	#"BICORNE": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BicorneBtn,
+	#"BOATER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BoaterBtn,
 	# "BOWLER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/BowlerBtn,
 	# "DEERSTALKER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/DeerstalkerBtn,
 	 "FEDORA": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/FedoraBtn,
@@ -24,8 +24,8 @@ extends Control
 	# "GARRISON CAP": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/GarrisonCapBtn,
 	# "HARD HAT": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/HardHatBtn,
 	# "MILITARY HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MilitaryHelmetBtn,
-	 "MOTARBOARD": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MotarboardBtn,
-	# "PITH HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PithHelmetBtn,
+	# "MOTARBOARD": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/MotarboardBtn,
+	"PITH HELMET": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PithHelmetBtn,
 	"PORK PIE": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/PorkPieBtn,
 	"SOMBRERO": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/SombreroBtn,
 	# "SOUTHWESTER": $MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid/SouthwesterBtn,
