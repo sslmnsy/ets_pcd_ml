@@ -1,150 +1,172 @@
-# Proyek Detektor Wajah: LBP + SVM dengan Overlay Topi Virtual
+# Virtual Try-On Topi (LBP+SVM) dengan Godot
 
-Ini adalah proyek computer vision klasik yang mengimplementasikan deteksi wajah real-time dan aplikasi virtual try-on (uji coba virtual).
+Proyek ini adalah implementasi *virtual try-on* topi (VTO) secara *real-time* yang menggunakan arsitektur *client-server*.
 
-Proyek ini menggunakan backend Python (OpenCV, Scikit-learn) untuk melakukan pemrosesan video dan deteksi wajah. Stream video yang telah diproses kemudian dikirim melalui jaringan (UDP) ke frontend Godot Engine, di mana pengguna dapat secara interaktif memilih berbagai topi untuk "dicoba".
+* **Backend (Server):** Ditulis dalam **Python** menggunakan OpenCV dan Scikit-learn. Bertugas menjalankan *pipeline* deteksi wajah yang intensif secara komputasi.
+* **Frontend (Client):** Dibangun dengan **Godot Engine**. Bertugas sebagai antarmuka pengguna (UI) yang interaktif dan menampilkan hasil *streaming* video.
 
-## Arsitektur Pipeline
+Proyek ini menggunakan metode *Computer Vision* klasik (Haar Cascades, LBP, dan SVM) dan **tidak** menggunakan *Deep Learning*.
 
-Proyek ini menggunakan pipeline deteksi hibrid untuk mencapai keseimbangan antara kecepatan dan akurasi.
+## 🖼️ Tampilan Aplikasi
 
-### Tahap 1: Proposal (Haar Cascade)
+| Menu Utama (`main_menu.tscn`) | Adegan Try-On (`webcam_ui.tscn`) |
+| :---: | :---: |
+| `[Sisipkan screenshot main_menu.png Anda di sini]` | `[Sisipkan screenshot webcam_ui_berjalan.png Anda di sini]` |
 
-Setiap frame dari webcam pertama kali dianalisis menggunakan classifier Haar Cascade (`haarcascade_frontalface_default.xml`) dari OpenCV.
+## 🚀 Arsitektur & Alur Kerja
 
-Metode ini sangat cepat dan efisien dalam membuang area yang pasti bukan wajah, serta memberikan beberapa "kandidat" ROI (Region of Interest) yang mungkin wajah.
+Sistem ini menggunakan arsitektur *client-server* untuk memisahkan logika UI (ringan) dari logika CV (berat). Komunikasi berlangsung melalui *streaming* video UDP.
 
-### Tahap 2: Verifikasi (LBP + SVM)
+`[Sisipkan gambar diagram alir arsitektur Anda di sini (image_9f7258.png)]`
 
-Setiap ROI kandidat dari Tahap 1 kemudian dianalisis oleh classifier kita yang telah dilatih.
+**Alur Logika (Pipeline):**
 
-- **LBP (Local Binary Patterns)**: Fitur tekstur diekstraksi dari ROI. LBP sangat baik dalam mendeskripsikan tekstur wajah dan tahan terhadap perubahan pencahayaan.
-- **SVM (Support Vector Machine)**: Vektor fitur LBP kemudian dimasukkan ke model SVM (`svm_lbp.pkl`) yang telah kita latih untuk membuat keputusan akhir: "Ya, ini wajah" (Label 1) atau "Bukan, ini false positive" (Label 0).
-
-Arsitektur "Proposal + Verifikasi" ini jauh lebih cepat daripada sliding window murni, sehingga memungkinkan deteksi real-time.
+1. **Server (Python):** `run_server.py` mengakses webcam (`cv2.VideoCapture`).
+2. **Tahap 1: Proposal ROI (Haar Cascade):** *Server* menggunakan Haar Cascade (`haarcascade_frontalface_default.xml`) untuk menemukan *kandidat* wajah dengan cepat.
+3. **Tahap 2: Verifikasi Fitur (LBP+SVM):**
+   * Setiap kandidat ROI dianalisis fiturnya menggunakan **Local Binary Patterns (LBP)**.
+   * Vektor fitur LBP dikirim ke *classifier* **SVM** (`svm_lbp.pkl`) yang telah dilatih.
+4. **Overlay (Python):** Jika SVM memverifikasi wajah, *server* mengambil aset topi (`.png`) dan `.json`-nya (untuk penempatan) lalu menggambarnya di atas *frame* video.
+5. **Streaming (Python):** *Frame* yang sudah jadi (video + topi) di-*encode* ke **JPEG** dan di-*stream* melalui UDP.
+6. **Tampilan (Godot):** *Client* Godot menerima paket-paket JPEG, merakitnya kembali, dan menampilkannya di `TextureRect`.
+7. **Interaksi (Godot):** Pengguna menekan tombol topi di UI Godot. Godot mengirimkan **perintah teks** (misal, `"HAT_CATEGORY:TOP HAT"`) ke *server* Python, yang kemudian mengganti topi di langkah #4.
 
 ## 📁 Struktur Folder Proyek
 ```
-svm_lbp_hat/
-├── assets/
-│   ├── cascades/
-│   │   ├── haarcascade_frontalface_default.xml
-│   │   └── haarcascade_eye.xml
-│   └── hats/
-│       ├── top_hat.png
-│       ├── top_hat.json
+ets_pcd_ml/
+│
+├── 📂 assets/
+│   ├── 📂 cascades/
+│   │   ├── haarcascade_frontalface_default.xml   (Detektor Wajah Cepat)
+│   │   └── haarcascade_eye.xml                   (Untuk Rotasi Topi)
+│   └── 📂 hats/
+│       ├── top_hat.png                           (Gambar Aset)
+│       ├── top_hat.json                          (Metadata Posisi)
 │       ├── sombrero.png
-│       ├── sombrero.json
-│       └── (dan topi lainnya...)
+│       └── sombrero.json                         (dst...)
 │
-├── data/
-│   ├── faces/              # Data latih wajah
-│   └── non_faces/          # Data latih non-wajah
+├── 📂 data/
+│   ├── 📂 faces/                                 (Data latih positif - hasil crop)
+│   └── 📂 non_faces/                             (Data latih negatif)
 │
-├── models/
-│   ├── svm_lbp.pkl         # Dihasilkan oleh 'app.py train'
-│   └── test_data.pkl       # Dihasilkan oleh 'app.py train'
+├── 📂 godot_client/
+│   ├── main_menu.tscn
+│   ├── webcam_ui.tscn
+│   ├── guide.tscn
+│   ├── about_team.tscn
+│   ├── webcam_client_udp.gd                      (Skrip utama Godot)
+│   └── project.godot
 │
-├── pipelines/
-│   ├── __init__.py
-│   ├── dataset.py          # Memuat data latih
-│   ├── features.py         # Logika ekstraksi LBP
-│   ├── infer.py            # Logika pipeline deteksi
-│   ├── overlay.py          # Logika penempatan topi
-│   ├── train.py            # Logika training SVM/RF
-│   └── utils.py            # Fungsi helper, pemuat aset
+├── 📂 models/
+│   ├── svm_lbp.pkl                               (Model SVM yang dilatih)
+│   └── test_data.pkl                             (Data uji untuk evaluasi)
 │
-├── app.py                  # Entry point untuk training & tes lokal
-├── run_server.py           # Entry point untuk Server UDP
-├── client.py               # Client Python sederhana untuk debugging
-├── webcam_client_udp.gd    # Skrip untuk Godot Client
-└── requirements.txt        # Dependensi Python
+├── 📂 pipelines/
+│   ├── infer.py                                  (Logika pipeline deteksi)
+│   ├── train.py                                  (Logika pipeline training)
+│   ├── features.py                               (Logika ekstraksi LBP)
+│   ├── dataset.py                                (Logika memuat data)
+│   ├── overlay.py                                (Logika menempelkan topi)
+│   └── utils.py                                  (Fungsi helper)
+│
+├── app.py                                        (Utilitas: train, eval, webcam lokal)
+├── run_server.py                                 (Aplikasi Server Utama - untuk Godot)
+├── client.py                                     (Client Python sederhana untuk debug)
+├── preprocess.py                                 (Skrip untuk cropping/cleaning dataset)
+└── requirements.txt                              (Dependensi Python)
 ```
 
-## 🚀 Setup Proyek
+## ⚙️ Instalasi dan Setup
 
-### Bagian 1: Backend (Python Server)
+### 1. Backend (Python)
 
-1. **Klon/Buat Proyek**: Siapkan struktur folder di atas.
-
-2. **Buat Virtual Environment**:
+Disarankan untuk menggunakan *virtual environment* (venv).
 ```bash
-   python -m venv venv
-   venv\Scripts\activate  # (Windows)
-   # source venv/bin/activate # (Mac/Linux)
+# 1. Arahkan ke folder proyek
+cd ets_pcd_ml
+
+# 2. Buat venv baru
+python -m venv venv
+
+# 3. Aktifkan venv
+.\venv\Scripts\activate
+
+# 4. Instal semua library yang dibutuhkan
+pip install -r requirements.txt
 ```
 
-3. **Instal Dependensi**:
+### 2. Frontend (Godot)
+
+1. Buka Godot Engine (v4.x).
+2. Klik "Import" atau "Scan".
+3. Arahkan ke folder `godot_client/` dan impor file `project.godot`.
+
+## 🚀 Cara Menjalankan Proyek (Alur Kerja Lengkap)
+
+Proyek ini harus dijalankan dalam 4 tahap:
+
+### Tahap 1: Persiapan Data (Hanya sekali)
+
+1. Gunakan folder `data/faces` dan `data/non_faces` yang sudah tersedia, atau jika ingin menggunakan data sendiri,
+2. Unduh dataset gambar mentah (misal Caltech 10k untuk wajah, ImageNet/Kaggle untuk non-wajah).
+3. Jalankan skrip `preprocess.py` (yang berisi `DatasetPreprocessor` dan `DatasetCleaner`).
 ```bash
-   pip install -r requirements.txt
+   python preprocess.py
 ```
+3. Ikuti petunjuk di terminal untuk melakukan *cropping* wajah dari data mentah dan *cleaning* (membatasi jumlah) data latih Anda.
+### Tahap 2: Training Model (Hanya sekali)
 
-4. **Unduh Aset Cascade**:
-   - Unduh `haarcascade_frontalface_default.xml` dan `haarcascade_eye.xml` dari [GitHub OpenCV](https://github.com/opencv/opencv/tree/master/data/haarcascades) atau dari library yang telah diinstal.
-   - Tempatkan kedua file tersebut di `assets/cascades/`.
-
-### Bagian 2: Aset Topi (PENTING!)
-
-Aplikasi ini menggunakan sistem metadata JSON untuk mengatur posisi dan ukuran setiap topi.
-
-1. Tempatkan semua gambar topi Anda di `assets/hats/`.
-2. Untuk setiap file gambar (misal `top_hat.png`), buat file `.json` dengan nama yang sama persis (misal `top_hat.json`).
-3. Isi file `.json` dengan parameter penyesuaian.
-
-**Contoh `assets/hats/top_hat.json`**:
-```json
-{
-  "scale_factor": 1.4,
-  "y_offset_factor": 0.8,
-  "x_offset_factor": 0.0
-}
-```
-
-- **`scale_factor`**: Ukuran topi. 1.0 = 100% lebar kotak wajah.
-- **`y_offset_factor`**: Posisi vertikal. Nilai lebih besar = lebih tinggi (mengambang). Nilai lebih kecil = lebih rendah.
-- **`x_offset_factor`**: Posisi horizontal. 0.0 = tengah. Nilai positif = geser ke kanan. Nilai negatif = geser ke kiri.
-
-**PENTING**: Nama file Anda akan otomatis diubah menjadi nama Kategori.
-- `top_hat.png` akan menjadi "TOP HAT".
-- `pith_helmet.png` akan menjadi "PITH HELMET".
-- `zucchetto.png` akan menjadi "ZUCCHETTO".
-
-Pastikan nama file ini cocok dengan teks pada tombol-tombol di Godot Anda.
-
-### Bagian 3: Frontend (Godot Client)
-
-1. Buka proyek Godot Anda.
-2. Lampirkan skrip `webcam_client_udp.gd` ke node utama scene UI Anda.
-3. Pastikan nama-nama node di skrip (misal `@onready var texture_rect = ...`) cocok dengan nama node di scene tree Anda.
-
-## 💻 Cara Menjalankan Proyek
-
-### Langkah 1: Latih Model Anda (Hanya 1x)
-
-Anda harus memiliki data di `data/faces` dan `data/non_faces`.
+Setelah `data/faces` dan `data/non_faces` Anda siap, latih model SVM Anda.
 ```bash
-# Buka terminal dan jalankan:
+# Jalankan 'app.py' dengan perintah 'train'
 python app.py train --pos_dir data/faces --neg_dir data/non_faces
 ```
 
-Ini akan membuat file `svm_lbp.pkl` (atau `rf_lbp.pkl` jika Anda menggunakan `--classifier rf`) di dalam folder `models/`.
+Proses ini akan memakan waktu beberapa menit dan menghasilkan `models/svm_lbp.pkl` dan `models/test_data.pkl`.
 
-### Langkah 2: Jalankan Server (Python)
+### Tahap 3: Menjalankan Server Backend
 
-Pastikan `svm_lbp.pkl` Anda sudah ada. Server ini akan memuat model, menyalakan webcam, dan mulai men-streaming video.
+Sekarang Anda bisa menjalankan server utama. Server ini akan mengakses webcam Anda.
 ```bash
-# Di terminal yang sama, jalankan:
 python run_server.py
 ```
 
-Anda akan melihat log: `🚀 UDP Server started at 0.0.0.0:8888`.
+Terminal akan menampilkan `🚀 UDP Server started at 0.0.0.0:8888`. Server sekarang sedang *streaming*.
 
-### Langkah 3: Jalankan Client (Godot)
+### Tahap 4: Menjalankan Client Frontend
 
-1. Buka proyek Godot Anda.
-2. Jalankan scene utama (F5).
-3. Klik tombol "Connect to Server".
-4. Anda akan melihat stream video dari server Python Anda.
-5. Klik tombol kategori topi (misal "TOP HAT") untuk menampilkan topi.
-6. Klik tombol yang sama lagi untuk menyembunyikan topi (HAT_OFF).
+1. Buka proyek `godot_client/` di Godot Engine.
+2. Jalankan *scene* utama (`main_menu.tscn`).
+3. Tekan tombol **"Mulai Try-On"**.
+4. Di *scene* webcam, tekan tombol **"Connect to Server"**.
+5. Video Anda akan muncul, dan Anda dapat mulai memilih topi.
 
+## 🎩 Cara Menambahkan Topi Baru
+
+Sistem ini sepenuhnya dinamis. Untuk menambahkan topi baru:
+
+1. **Tambahkan Gambar:** Simpan gambar topi transparan Anda di `assets/hats/`. Contoh: `cowboy_hat.png`.
+
+2. **Tambahkan JSON:** Buat file `.json` dengan **nama yang sama persis** di folder yang sama. Contoh: `cowboy_hat.json`.
+
+3. **Isi JSON:** Edit file `.json` dengan parameter penempatan.
+
+   **Contoh `cowboy_hat.json`:**
+```json
+   {
+     "scale_factor": 1.5,
+     "y_offset_factor": 0.85,
+     "x_offset_factor": -0.05
+   }
+```
+
+   * `scale_factor`: Mengontrol **ukuran**. > 1.0 = lebih besar.
+   * `y_offset_factor`: Mengontrol **posisi vertikal**. Nilai lebih besar = lebih rendah.
+   * `x_offset_factor`: Mengontrol **posisi horizontal**. Nilai positif = ke kanan.
+
+4. **Selesai.** Anda hanya perlu me-restart `run_server.py` agar ia memuat topi baru Anda. Anda **tidak perlu** mengedit kode Godot (UI Anda akan butuh tombol baru, tapi server akan langsung mengenali file `cowboy_hat.png` jika nama filenya diubah menjadi `COWBOY HAT`).
+
+
+## 👥 Tim Pengembang
+Fitri Salwa
+Salma Nesya Putri Salia
