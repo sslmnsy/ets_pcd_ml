@@ -148,16 +148,3 @@ Anda akan melihat log: `🚀 UDP Server started at 0.0.0.0:8888`.
 5. Klik tombol kategori topi (misal "TOP HAT") untuk menampilkan topi.
 6. Klik tombol yang sama lagi untuk menyembunyikan topi (HAT_OFF).
 
-## 🧪 (Opsional) Pengujian Lokal
-
-Anda dapat menguji pipeline CV Anda secara lokal tanpa server jaringan menggunakan perintah `app.py`.
-
-**Tes pada Gambar**:
-```bash
-python app.py infer --image file_tes.jpg --out hasil.jpg --hat assets/hats/top_hat.png
-```
-
-**Tes pada Webcam Lokal (Tanpa Jaringan)**:
-```bash
-python app.py webcam --camera 0 --hat assets/hats/top_hat.png
-```

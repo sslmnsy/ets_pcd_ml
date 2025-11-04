@@ -234,7 +234,7 @@ class HatTryOnServerUDP:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🎩 HAT TRY-ON SERVER (Multi-Hat / Category Version)")
+    print("🎩 HAT TRY-ON SERVER")
     print("=" * 60)
     
     MODELS_DIR = Path("models")
