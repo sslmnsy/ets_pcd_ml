@@ -1,50 +1,50 @@
 [gd_scene load_steps=9 format=3 uid="uid://bgp8u5woc7156"]
 
-[ext_resource type="Script" path="res://guide.gd" id="1"]
+[ext_resource type="Script" uid="uid://b7uatrnnuhfl6" path="res://guide.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://8jt61foy45r2" path="res://asset/panduan.png" id="2_feuw2"]
 [ext_resource type="FontFile" uid="uid://d1sx4lt84lm2w" path="res://asset/Pacifico-Regular.ttf" id="3_gajip"]
 [ext_resource type="AudioStream" uid="uid://c7ge6ay7v72a8" path="res://asset/sound.mp3" id="4_83y8a"]
-[ext_resource type="PackedScene" path="res://sound.tscn" id="5_utvnm"]
+[ext_resource type="PackedScene" uid="uid://xmnw7uyt3tsg" path="res://sound.tscn" id="5_utvnm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83y8a"]
-bg_color = Color(0.54739803, 0.37894404, 0.41593853, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn84f"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.9019608, 0.8, 0.7019608, 1)
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utvnm"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83y8a"]
+bg_color = Color(0.547398, 0.378944, 0.415939, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.901961, 0.8, 0.701961, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 corner_detail = 9
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utvnm"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn84f"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
 
 [node name="Guide" type="Control"]
 layout_mode = 3
@@ -66,43 +66,43 @@ expand_mode = 3
 layout_mode = 0
 offset_left = 180.0
 offset_top = 162.0
-offset_right = 670.0
+offset_right = 676.0
 offset_bottom = 439.0
-theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+theme_override_colors/font_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
 theme_override_fonts/font = ExtResource("3_gajip")
 theme_override_font_sizes/font_size = 20
 text = "
 Main Menu
 Guide → Petunjuk penggunaan aplikasi
 Teams → Anggota tim pengembang
-Start VTO → Mulai fitur Virtual Try-On
+Mulai Try-On → Mulai fitur VTO
 Quit → Keluar dari aplikasi
 "
 
 [node name="Label3" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 206.0
-offset_right = 1151.0
-offset_bottom = 483.0
-theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+offset_left = 541.0
+offset_top = 189.0
+offset_right = 1132.0
+offset_bottom = 466.0
+theme_override_colors/font_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
 theme_override_fonts/font = ExtResource("3_gajip")
 theme_override_font_sizes/font_size = 20
-text = "Start VTO
-1. Aktifkan kamera dan tunggu proses deteksi wajah (connec to server)
-2. Pilih kategori topi: 🎩 Formal, 🧢 Casual, 👒 Fashion
-3. Topi akan muncul otomatis di posisi kepala
-4.Tekan Back untuk kembali ke menu utama
-
+text = "Mulai Try-On:
+1. Tekan tombol \"Connect to Server\" untuk memulai video stream.
+2. Pilih salah satu kategori topi yang tersedia (misal: \"Top Hat\").
+3. Topi akan muncul secara otomatis di kepala Anda.
+4. Tekan kembali tombol topi yang sama untuk melepasnya (toggle).
+5. Tekan tombol \"Kembali\" untuk kembali ke menu utama.
 "
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 762.0
-offset_top = 487.0
-offset_right = 1052.0
-offset_bottom = 644.0
-theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
+offset_left = 724.0
+offset_top = 475.0
+offset_right = 1014.0
+offset_bottom = 632.0
+theme_override_colors/font_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
 theme_override_fonts/font = ExtResource("3_gajip")
 theme_override_font_sizes/font_size = 20
 text = "Tips
@@ -124,9 +124,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_gajip")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_83y8a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_utvnm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rn84f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_utvnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_83y8a")
 text = "Kembali"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

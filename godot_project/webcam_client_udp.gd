@@ -350,7 +350,7 @@ func update_info_display():
 
 func update_status(message: String):
 	status_label.text = "Status: " + message
-	print("🎮 Webcam Client: " + message) # <-- Baris 388 yang sudah diperbaiki
+	print("🎮 Webcam Client: " + message) 
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

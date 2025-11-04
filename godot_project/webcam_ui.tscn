@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://xmnw7uyt3tsg" path="res://sound.tscn" id="5_bi5fp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header"]
-bg_color = Color(0.14901961, 0.14901961, 0.2, 0.23921569)
+bg_color = Color(0.14902, 0.14902, 0.2, 0.239216)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_video"]
-bg_color = Color(0.6, 0.6, 0.6, 0.4392157)
+bg_color = Color(0.6, 0.6, 0.6, 0.439216)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -26,25 +26,11 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_panel"]
-bg_color = Color(0.14901961, 0.14901961, 0.2, 0.33333334)
+bg_color = Color(0.14902, 0.14902, 0.2, 0.333333)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y8pm"]
-bg_color = Color(0.5764706, 0.42745098, 0.47058824, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_btn_pressed"]
-bg_color = Color(0.3, 0.5, 0.7, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_btn_hover"]
 bg_color = Color(0.25, 0.25, 0.3, 1)
@@ -53,27 +39,67 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat_btn_pressed"]
+bg_color = Color(0.3, 0.5, 0.7, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y8pm"]
+bg_color = Color(0.576471, 0.427451, 0.470588, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_info"]
-bg_color = Color(0.14901961, 0.14901961, 0.2, 0.39607844)
+bg_color = Color(0.14902, 0.14902, 0.2, 0.396078)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_controls"]
-bg_color = Color(0.14901961, 0.14901961, 0.2, 0)
+bg_color = Color(0.14902, 0.14902, 0.2, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k1oh"]
-bg_color = Color(0.54739803, 0.37894404, 0.41593853, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi5fp"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.9019608, 0.8, 0.7019608, 1)
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21dyk"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k1oh"]
+bg_color = Color(0.547398, 0.378944, 0.415939, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.901961, 0.8, 0.701961, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
@@ -81,26 +107,26 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 corner_detail = 9
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21dyk"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbb0w"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi5fp"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgl7w"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
@@ -108,44 +134,18 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48mts"]
-bg_color = Color(0.54739803, 0.37894404, 0.41593853, 1)
+bg_color = Color(0.547398, 0.378944, 0.415939, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.9019608, 0.8, 0.7019608, 1)
+border_color = Color(0.901961, 0.8, 0.701961, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 corner_detail = 9
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgl7w"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbb0w"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
 
 [node name="WebcamUi" type="Control"]
 layout_mode = 3
@@ -157,23 +157,24 @@ grow_vertical = 2
 script = ExtResource("1_f2kfe")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -813.0
-offset_top = 6.0
-offset_right = 1139.7778
-offset_bottom = 976.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -630.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_21dyk")
-expand_mode = 3
+expand_mode = 1
 
 [node name="MainContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -199,14 +200,14 @@ size_flags_horizontal = 3
 [node name="Title" type="Label" parent="MainContainer/Header/HeaderContent/MarginLeft/TitleContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.18598092, 0.18598092, 0.18598092, 1)
+theme_override_colors/font_color = Color(0.185981, 0.185981, 0.185981, 1)
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 40
 text = "🎥 Webcam Streaming Client"
 
 [node name="ServerInfo" type="Label" parent="MainContainer/Header/HeaderContent/MarginLeft/TitleContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.098728366, 0.09872835, 0.09872835, 1)
+theme_override_colors/font_color = Color(0.0987284, 0.0987284, 0.0987284, 1)
 theme_override_font_sizes/font_size = 14
 text = "Server: 127.0.0.1:8888"
 
@@ -217,7 +218,7 @@ size_flags_horizontal = 8
 [node name="StatusLabel" type="Label" parent="MainContainer/Header/HeaderContent/MarginRight"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_colors/font_color = Color(0.6392157, 0.45882353, 0.5019608, 1)
+theme_override_colors/font_color = Color(0.639216, 0.458824, 0.501961, 1)
 theme_override_font_sizes/font_size = 16
 text = "Status: Disconnected"
 
@@ -263,9 +264,9 @@ theme_override_constants/separation = 10
 
 [node name="HatTitle" type="Label" parent="MainContainer/HatControlPanel/HatContent/HatContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.004023319, 0.002031446, 2.256129e-09, 1)
+theme_override_colors/font_color = Color(0.00402332, 0.00203145, 2.25613e-09, 1)
 theme_override_font_sizes/font_size = 16
-text = "🎩 Hat Categories"
+text = "🎩 Pilih Topi"
 
 [node name="HatGrid" type="GridContainer" parent="MainContainer/HatControlPanel/HatContent/HatContainer"]
 layout_mode = 2
@@ -280,9 +281,9 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 text = "Pork Pie"
 
 [node name="TopHatBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
@@ -290,9 +291,9 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 text = "Top Hat"
 
 [node name="PithHelmetBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
@@ -300,9 +301,9 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 text = "Pith 
 Helmet"
 
@@ -311,9 +312,9 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 text = "Fedora"
 
 [node name="SombreroBtn" type="Button" parent="MainContainer/HatControlPanel/HatContent/HatContainer/HatGrid"]
@@ -321,9 +322,9 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y8pm")
 text = "Sombrero"
 
 [node name="InfoPanel" type="PanelContainer" parent="MainContainer"]
@@ -344,19 +345,19 @@ theme_override_constants/separation = 40
 
 [node name="FPSLabel" type="Label" parent="MainContainer/InfoPanel/InfoContent/InfoGrid"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.31607525e-08, 0.024681995, 0.0054647126, 1)
+theme_override_colors/font_color = Color(1.31608e-08, 0.024682, 0.00546471, 1)
 theme_override_font_sizes/font_size = 16
 text = "FPS: --"
 
 [node name="ResolutionLabel" type="Label" parent="MainContainer/InfoPanel/InfoContent/InfoGrid"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.31607525e-08, 0.024681995, 0.0054647126, 1)
+theme_override_colors/font_color = Color(1.31608e-08, 0.024682, 0.00546471, 1)
 theme_override_font_sizes/font_size = 16
 text = "Resolution: --"
 
 [node name="DataRateLabel" type="Label" parent="MainContainer/InfoPanel/InfoContent/InfoGrid"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.31607525e-08, 0.024681995, 0.0054647126, 1)
+theme_override_colors/font_color = Color(1.31608e-08, 0.024682, 0.00546471, 1)
 theme_override_font_sizes/font_size = 16
 text = "Data Rate: --"
 
@@ -378,25 +379,25 @@ alignment = 1
 [node name="ConnectButton" type="Button" parent="MainContainer/ControlPanel/ControlContent/ButtonContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_7k1oh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_21dyk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bi5fp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_21dyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7k1oh")
 text = "Connect to Server"
 
 [node name="QuitButton" type="Button" parent="MainContainer/ControlPanel/ControlContent/ButtonContainer"]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_48mts")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_48mts")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qgl7w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nbb0w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qgl7w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_48mts")
 text = "Kembali"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

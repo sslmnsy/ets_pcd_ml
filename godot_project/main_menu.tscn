@@ -1,37 +1,37 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj4eavesur6ma"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://bddrrb8vx7g11" path="res://main_menu.gd" id="1_menu"]
 [ext_resource type="Texture2D" uid="uid://b5a8wsls6ihr7" path="res://asset/bg.png" id="2_fu7sn"]
 [ext_resource type="FontFile" uid="uid://d1sx4lt84lm2w" path="res://asset/Pacifico-Regular.ttf" id="3_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://c7ge6ay7v72a8" path="res://asset/sound.mp3" id="4_jix8l"]
-[ext_resource type="PackedScene" path="res://sound.tscn" id="5_glbon"]
+[ext_resource type="PackedScene" uid="uid://xmnw7uyt3tsg" path="res://sound.tscn" id="5_glbon"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
-bg_color = Color(0.54739803, 0.37894404, 0.41593853, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.771956, 0.605031, 0.63887, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.9019608, 0.8, 0.7019608, 1)
+border_color = Color(0.54902, 0.380392, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.547398, 0.378944, 0.415939, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.901961, 0.8, 0.701961, 1)
 border_blend = true
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 corner_detail = 9
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
-bg_color = Color(0.7719556, 0.60503143, 0.6388696, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.54901963, 0.38039216, 0.41568628, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
 
 [sub_resource type="FontVariation" id="FontVariation_jix8l"]
 base_font = ExtResource("3_fu7sn")
@@ -46,9 +46,12 @@ grow_vertical = 2
 script = ExtResource("1_menu")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 651.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_fu7sn")
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
@@ -71,9 +74,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fu7sn")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Mulai Try-On"
 
 [node name="GuideButton" type="Button" parent="MenuContainer"]
@@ -81,9 +84,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fu7sn")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Panduan"
 
 [node name="AboutButton" type="Button" parent="MenuContainer"]
@@ -91,9 +94,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_fu7sn")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Tentang Tim"
 
 [node name="QuitButton" type="Button" parent="MenuContainer"]
@@ -101,9 +104,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_jix8l")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Keluar"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
