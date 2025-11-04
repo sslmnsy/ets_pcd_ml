@@ -11,16 +11,14 @@ Proyek ini menggunakan metode *Computer Vision* klasik (Haar Cascades, LBP, dan 
 
 | Menu Utama (`main_menu.tscn`) | Try-On Topi (`webcam_ui.tscn`) |
 | :---: | :---: |
-| `<img width="2780" height="1555" alt="image" src="https://github.com/user-attachments/assets/7098346b-d002-480e-8c16-42fdb0ef002e" />
-` | `<img width="2767" height="1557" alt="image" src="https://github.com/user-attachments/assets/4832871f-0156-45ba-bcfa-df259cb45d32" />
-` |
+| <img width="2780" height="1555" alt="image" src="https://github.com/user-attachments/assets/7098346b-d002-480e-8c16-42fdb0ef002e" /> | <img width="2767" height="1557" alt="image" src="https://github.com/user-attachments/assets/4832871f-0156-45ba-bcfa-df259cb45d32" />
+|
 
 ## 🚀 Arsitektur & Alur Kerja
 
 Sistem ini menggunakan arsitektur *client-server* untuk memisahkan logika UI (ringan) dari logika CV (berat). Komunikasi berlangsung melalui *streaming* video UDP.
 
-`<img width="896" height="723" alt="image" src="https://github.com/user-attachments/assets/209e0e38-1847-469f-af20-b0445700404f" />
-`
+<img width="896" height="723" alt="image" src="https://github.com/user-attachments/assets/209e0e38-1847-469f-af20-b0445700404f" />
 
 **Alur Logika (Pipeline):**
 
