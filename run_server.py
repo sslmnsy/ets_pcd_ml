@@ -74,7 +74,7 @@ class HatTryOnServerUDP:
         for i, hat_data in enumerate(self.hats_list):
             if hat_data["name"] == category_name:
                 return i
-        return None # Tidak ditemukan
+        return None 
 
     def process_frame(self, frame):
         """
@@ -82,18 +82,13 @@ class HatTryOnServerUDP:
         """
         current_hat_data = self.get_current_hat()
         
-        # MODIFIED: Kirim 'hat_enabled' ke pipeline
         processed_frame = self.pipeline.process_frame(
             frame, 
             hat_data=current_hat_data,
-            show_hat=self.hat_enabled, # <-- MODIFIKASI KUNCI
+            show_hat=self.hat_enabled,
             show_box=True
         )
         
-        # Tambahkan nama topi ke layar HANYA jika aktif
-        if self.hat_enabled and current_hat_data:
-            cv2.putText(processed_frame, f"Hat: {current_hat_data['name']}", (10, 120), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         
         return processed_frame
 
@@ -173,7 +168,6 @@ class HatTryOnServerUDP:
                     logger.warning(f"⚠️  Listen Error: {e}")
     
     def stream_webcam(self):
-        # ... (Fungsi ini tidak berubah, karena process_frame() sudah diubah)
         while self.running:
             try:
                 if len(self.clients) == 0:
@@ -230,7 +224,6 @@ class HatTryOnServerUDP:
                     logger.error(f"❌ Error sending to {client_addr}: {e}")
 
     def stop_server(self):
-        # ... (Fungsi ini tidak berubah) ...
         logger.info("⏹️  Stopping server...")
         self.running = False
         if self.server_socket:

@@ -80,7 +80,7 @@ svm_lbp_hat/
 ```
 
 4. **Unduh Aset Cascade**:
-   - Unduh `haarcascade_frontalface_default.xml` dan `haarcascade_eye.xml` dari [GitHub OpenCV](https://github.com/opencv/opencv/tree/master/data/haarcascades).
+   - Unduh `haarcascade_frontalface_default.xml` dan `haarcascade_eye.xml` dari [GitHub OpenCV](https://github.com/opencv/opencv/tree/master/data/haarcascades) atau dari library yang telah diinstal.
    - Tempatkan kedua file tersebut di `assets/cascades/`.
 
 ### Bagian 2: Aset Topi (PENTING!)

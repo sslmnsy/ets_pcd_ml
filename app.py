@@ -20,13 +20,13 @@ def main():
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # 1. Perintah Train
-    p_train = subparsers.add_parser("train", help="Train the LBP+SVM/RF classifier.")
+    p_train = subparsers.add_parser("train", help="Train the LBP+SVM classifier.")
     p_train.add_argument("--pos_dir", type=Path, required=True, help="Directory of positive face crops.")
     p_train.add_argument("--neg_dir", type=Path, required=True, help="Directory of negative non-face images.")
     p_train.add_argument("--test_size", type=float, default=0.2, help="Fraction of data to use for testing.")
     p_train.add_argument("--augment", action='store_true', help="Enable image augmentation for training.")
-    p_train.add_argument("--classifier", type=str, choices=['svm', 'rf'], 
-                         default='svm', help="Tipe classifier (svm atau rf).")
+    p_train.add_argument("--classifier", type=str, choices=['svm'], 
+                         default='svm', help="Tipe classifier SVM.")
     p_train.add_argument("--model_dir", type=Path, default=Path("models"), help="Directory to save models.")
     
     # 2. Perintah Eval
@@ -56,7 +56,7 @@ def main():
     
     # Setel nama model default berdasarkan classifier jika sedang training
     if args.command == 'train':
-        args.model_name = f"{args.classifier}_lbp.pkl"
+        args.model_name = f"svm_lbp.pkl"
     
     # Jika tidak train, pastikan model_name disetel
     if not hasattr(args, 'model_name'):

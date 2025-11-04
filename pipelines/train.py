@@ -5,7 +5,6 @@ import cv2
 from tqdm import tqdm
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import LinearSVC
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
 from .dataset import load_dataset_from_dirs
@@ -79,16 +78,9 @@ def train_pipeline_lbp(args):
 
     # 4. Latih Classifier
     logger.info(f"Training {args.classifier.upper()} classifier...")
-    
-    if args.classifier == 'svm':
-        param_grid = {'C': [0.01, 0.1, 1.0, 10.0]}
-        base_model = LinearSVC(max_iter=20000, dual="auto", class_weight='balanced', random_state=42)
-    else: # 'rf'
-        param_grid = {
-            'n_estimators': [100, 200],
-            'max_depth': [10, 20, None],
-        }
-        base_model = RandomForestClassifier(random_state=42, class_weight='balanced', n_jobs=-1)
+    param_grid = {'C': [0.01, 0.1, 1.0, 10.0]}
+    base_model = LinearSVC(max_iter=20000, dual="auto", class_weight='balanced', random_state=42)
+ 
 
     grid_search = GridSearchCV(base_model, param_grid, cv=3, scoring='accuracy', n_jobs=-1, verbose=2)
     grid_search.fit(X_train_data, y_train_data)
@@ -104,7 +96,7 @@ def train_pipeline_lbp(args):
     print("="*80)
 
     # 6. Simpan Model dan Data Tes
-    model_path = args.model_dir / args.model_name
+    model_path = args.model_dir / "svm_lbp.pkl"
     joblib.dump(best_model, model_path)
     logger.info(f"Trained model saved to: {model_path}")
     
