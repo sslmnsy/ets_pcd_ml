@@ -72,7 +72,6 @@ ets_pcd_ml/
 │
 ├── app.py                                        (Utilitas: train, eval, webcam lokal)
 ├── run_server.py                                 (Aplikasi Server Utama - untuk Godot)
-├── client.py                                     (Client Python sederhana untuk debug)
 ├── preprocess.py                                 (Skrip untuk cropping/cleaning dataset)
 └── requirements.txt                              (Dependensi Python)
 ```
@@ -170,4 +169,7 @@ Sistem ini sepenuhnya dinamis. Untuk menambahkan topi baru:
 
 ## 👥 Tim Pengembang
 Fitri Salwa
+
 Salma Nesya Putri Salia
+
+
