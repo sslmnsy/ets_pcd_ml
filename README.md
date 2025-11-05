@@ -49,7 +49,7 @@ ets_pcd_ml/
 │   ├── 📂 faces/                                 (Data latih positif - hasil crop)
 │   └── 📂 non_faces/                             (Data latih negatif)
 │
-├── 📂 godot_client/
+├── 📂 godot_project/
 │   ├── main_menu.tscn
 │   ├── webcam_ui.tscn
 │   ├── guide.tscn
@@ -134,7 +134,7 @@ Terminal akan menampilkan `🚀 UDP Server started at 0.0.0.0:8888`. Server seka
 
 ### Tahap 4: Menjalankan Client Frontend
 
-1. Buka proyek `godot_client/` di Godot Engine.
+1. Buka proyek `godot_project/` di Godot Engine.
 2. Jalankan *scene* utama (`main_menu.tscn`).
 3. Tekan tombol **"Mulai Try-On"**.
 4. Di *scene* webcam, tekan tombol **"Connect to Server"**.
